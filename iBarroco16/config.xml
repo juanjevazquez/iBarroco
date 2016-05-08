@@ -1,10 +1,10 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.ibarroco" version="1.0.0">
   <name>iBarroco16</name>
   <description>Aplicacion oficial del XIV Mercado Barroco de Olivares (Sevilla).</description>
-  <author href="https://www.facebook.com/ibarroco" email="pmilrey@gmail.com">Pedro Millan Reyes</author>
+  <author href="https://www.facebook.com/ibarroco" email="pmilrey@gmail.com">Pedro Millan Reyes y Juan Jesús Vázquez Rodríguez</author>
   <content src="index.html"/>
   <preference name="permissions" value="none"/>
-  <preference name="orientation" value="default"/>
+  <preference name="orientation" value="portrait"/>
   <preference name="target-device" value="universal"/>
   <preference name="fullscreen" value="true"/>
   <preference name="webviewbounce" value="true"/>

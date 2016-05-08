@@ -1,0 +1,85 @@
+ #mapCanvas {
+        width: 97%;
+        height: 250px;
+        float: left;
+        margin-bottom: 4px;
+        border: 6px solid #6b290f;
+}
+
+/*Fondo de pantalla*/
+.fondopantalla{
+    background-image: url("fondo.jpg");
+}
+
+#infoPanel {
+    background-color: #6b290f;
+    background-size: contain;
+    border: 6px solid white;
+    display: block;
+    height: 88px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 8px 0 0 10px;
+    width: 95%;
+}
+
+#infoPanel div {
+        margin-bottom: 5px;
+        padding-left: 18px;
+}
+
+#infoPanel b {
+    color: #ffffff;
+    text-shadow: none;
+    font-size: 80%;
+}
+.logo {
+    display: block;
+    margin: 0 auto;
+    width: 33%;
+}
+
+.titulo {
+    text-align: center;
+    text-shadow: none;
+    color: #ffbf01;
+    font-size: 0.8rem;
+    background: black;
+    border: 1px solid #ffffff;
+    overflow: hidden;
+    margin-bottom: 5px;
+    padding: 1px;
+    width: 99%;
+}
+
+#infoPanel i, #infoPanel #info, #infoPanel #address, #infoPanel #markerStatus{
+    color: #d1a713;
+    font-weight: bold;
+    text-shadow: none;
+    text-transform: uppercase;
+    width: 90%;
+    font-size: 11px;
+}
+
+.derechosautor {
+    text-align: right;
+}
+.miposicion, #info{
+    display: none;
+}
+
+.gm-style-iw div {
+    color: #000000;
+    text-shadow: none;
+}
+
+.aparcacoche {
+    font-size: 14px;
+    margin: 0 auto;
+    width: 103px;
+    margin-top: -4px !important;
+}
+
+.ui-content {
+    padding: 0 !important;
+}
