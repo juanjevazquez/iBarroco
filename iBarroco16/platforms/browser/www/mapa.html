@@ -1,0 +1,319 @@
+<html>
+    <head>
+        <title>Aparcamientos del Barroco</title>
+       
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" href="css/stylemap.css" media="all" />
+        <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+         <link rel="stylesheet" href="estilos.css" media="all" />
+         <link rel="stylesheet" href="themes/ibarroco2015.min.css" />
+        <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+        <script type="text/javascript">
+            var posicion = new google.maps.Geocoder();
+
+          
+            function definirPosicion(pos) {
+                var latnow= pos.lat();
+                var longnow= pos.lng();
+
+                posicion.geocode({
+                    latLng: pos
+                }, function(responses) {
+                    if (responses && responses.length > 0) {
+                        actualizarDireccion(responses[0].formatted_address);
+                    } else {
+                        actualizarDireccion('¿Estás seguro de que tu coche está aquí?');
+                    }
+                });
+            }
+
+             function actualizarEstadoMarcador(str) {
+                document.getElementById('markerStatus').innerHTML = str;
+            }
+
+            
+
+            function actualizarPosicionMarcador(latLng) {
+
+                document.getElementById('info').innerHTML = [
+                    latLng.lat(),
+                    latLng.lng()
+                ].join(', ');
+
+            /*Guardamos los datos de longitud y longitud en variables de Local Storage*/
+            localStorage.setItem("Latitud", latLng.lat());
+            localStorage.setItem("Longitud", latLng.lng());
+
+                
+            }
+
+            function actualizarDireccion(str) {
+                document.getElementById('address').innerHTML = str;
+            }
+
+            function initialize() {
+                var imageparking = 'parking.png';
+                var imagelogo = 'logobarroco.png';
+                var imagehere = 'here.png';
+                var imagecoche = 'coche.png';
+                var centroolivares = new google.maps.LatLng(37.41861257965568,-6.155855365112302);
+                var hispania = new google.maps.LatLng(37.41986516013573,-6.1470040753631565);
+                var recintoferial = new google.maps.LatLng(37.41436898803273,-6.162292666748044);
+                var teatro = new google.maps.LatLng(37.41741573861634,-6.1584059880676705);
+
+                /*Cargamos los datos de longitud y longitud de las variables de Local Storage*/
+                var lati = localStorage.getItem("Latitud");
+                var longi = localStorage.getItem("Longitud");
+                /*Si el localStorage tiene datos, los cogemos*/
+                if (typeof lati !== 'undefined' && lati !== null && longi !== 'undefined' && longi != null){
+                    var latLng = new google.maps.LatLng(lati,longi);
+                }
+                else{
+                 /*Si el localStorage está vacío, ponemos una posición por defecto*/
+                    var latLng = new google.maps.LatLng(37.415907477563145,-6.15568086370854);
+                }
+                var map = new google.maps.Map(document.getElementById('mapCanvas'), {
+                    zoom: 14,
+                    center: latLng,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                });
+                var marker = new google.maps.Marker({
+                    position: latLng,
+                    icon: imagecoche,
+                    title: 'Mi coche',
+                    map: map,
+                    draggable: true
+                });
+
+//Método geolocalización
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = new google.maps.LatLng(position.coords.latitude,
+                                       position.coords.longitude);
+    var directionsService = new google.maps.DirectionsService();
+     var directionsDisplay = new google.maps.DirectionsRenderer();
+    //Marcador geoloca
+    var markergeoloca = new google.maps.Marker({
+        map:map,
+        icon: imagehere,
+        position: pos
+  });
+    directionsDisplay.setMap(map);
+     directionsDisplay.setPanel(document.getElementById('panel'));
+     var request = {
+       origin: pos,
+       destination: latLng,
+       travelMode: google.maps.DirectionsTravelMode.WALKING
+     };
+  var primera = new google.maps.LatLng(37.415907477563145,-6.15568086370854);
+     directionsService.route(request, function (response, status) {
+       if (status == google.maps.DirectionsStatus.OK && latLng.equals(primera)==false ) {
+         directionsDisplay.setDirections(response);
+       }
+     });
+
+      var infowindowgeoloca = new google.maps.InfoWindow({
+        content: 'Usted está aquí.'
+      });
+      
+      google.maps.event.addListener(markergeoloca, 'click', function() {
+            infowindowgeoloca.open(map,markergeoloca);
+        });
+
+    }, function() {
+      handleNoGeolocation(true);
+    });
+  } else {
+    // Browser no soporta Geolocalización
+    handleNoGeolocation(false);
+  }
+
+                //Mercado Barroco
+ 
+                 var contentStringplaza = '<div id="content">'+
+                      '<div id="siteNotice">'+
+                      '</div>'+
+                      '<h3 id="firstHeading" class="firstHeading">Mercado Barroco</h3>'+
+                      '</div>';
+
+                  var infowindowplaza = new google.maps.InfoWindow({
+                      content: contentStringplaza
+                  });
+                  var markerplaza = new google.maps.Marker({
+                    map:map,
+                    icon: imagelogo,
+                    animation: google.maps.Animation.DROP,
+                    position: centroolivares
+                  });
+                  google.maps.event.addListener(markerplaza, 'click', function() {
+                    infowindowplaza.open(map,markerplaza);
+                     });
+
+                    //Recinto ferial
+  
+                  var contentStringferia = '<div id="content">'+
+                      '<div id="siteNotice">'+
+                      '</div>'+
+                      '<h3 id="firstHeading" class="firstHeading">Recinto Ferial</h3>'+
+                      '<div id="bodyContent">'+
+                      '<p>Parking habilitado para el Mercado Barroco. Aproximadamente 150 plazas disponibles</p>'+
+                      '</div>'+
+                      '</div>';
+
+                  var infowindowferia = new google.maps.InfoWindow({
+                      content: contentStringferia
+                  });
+                  
+
+                  var recintoferial = new google.maps.LatLng(37.41436898803273,-6.162292666748044);
+                  var markerferia = new google.maps.Marker({
+                      position: recintoferial,
+                      map: map,
+                      icon: imageparking
+                  });
+                  
+                  google.maps.event.addListener(markerferia, 'click', function() {
+                    infowindowferia.open(map,markerferia);
+                     });
+                     
+                     //Parking Teatro
+  
+                  var contentStringteatro = '<div id="content">'+
+                      '<div id="siteNotice">'+
+                      '</div>'+
+                      '<h3 id="firstHeading" class="firstHeading">Aparcamiento del Teatro Municipal</h3>'+
+                      '<div id="bodyContent">'+
+                      '<p>Parking habilitado para el Mercado Barroco. Aproximadamente 50 plazas disponibles</p>'+
+                      '</div>'+
+                      '</div>';
+
+                  var infowindowteatro = new google.maps.InfoWindow({
+                      content: contentStringteatro
+                  });
+                  
+
+                  var recintoteatro = new google.maps.LatLng(37.41436898803273,-6.162292666748044);
+                  var markerteatro = new google.maps.Marker({
+                      position: teatro,
+                      map: map,
+                      icon: imageparking
+                  });
+                  
+                  google.maps.event.addListener(markerteatro, 'click', function() {
+                    infowindowteatro.open(map,markerteatro);
+                     });
+                     
+                    //Calle Hispania
+
+                var contentStringhispania = '<div id="content">'+
+                      '<div id="siteNotice">'+
+                      '</div>'+
+                      '<h3 id="firstHeading" class="firstHeading">Calle Hispania</h3>'+
+                      '<div id="bodyContent">'+
+                      '<p>Parking habilitado para el Mercado Barroco. Aproximadamente 100 plazas disponibles</p>'+
+                      '</div>'+
+                      '</div>';
+
+                  var infowindowhispania = new google.maps.InfoWindow({
+                      content: contentStringhispania
+                  });
+                  
+                var hispania = new google.maps.LatLng(37.41986516013573,-6.1470040753631565);
+                  var markerhispania = new google.maps.Marker({
+                      position: hispania,
+                      map: map,
+                    icon: imageparking
+                  });
+                  
+                  google.maps.event.addListener(markerhispania, 'click', function() {
+                    infowindowhispania.open(map,markerhispania);
+                  });
+
+                // Actualiza la información de la posición actual
+                actualizarPosicionMarcador(latLng);
+                definirPosicion(latLng);
+
+                // Aquí añadirmos los eventos addListeners.
+                google.maps.event.addListener(marker, 'dragstart', function() {
+                    actualizarDireccion('Aparcando...');
+                });
+
+                google.maps.event.addListener(marker, 'drag', function() {
+                    actualizarEstadoMarcador('Aparcando...');
+                    actualizarPosicionMarcador(marker.getPosition());
+                });
+
+                google.maps.event.addListener(marker, 'dragend', function() {
+                   actualizarEstadoMarcador('Coche aparcado');
+                    definirPosicion(marker.getPosition());
+                });
+            }
+
+            //Método manejador en caso de que no haya geolocalizacion
+function handleNoGeolocation(errorFlag) {
+  if (errorFlag) {
+    var content = 'Error: El servicio de Geolocalización falló.';
+  } else {
+    var content = 'Error: Tu dispositivo no soporta geolocalización.';
+  }
+
+  var options = {
+    map: map,
+    position: new google.maps.LatLng(60, 105),
+    content: content
+  };
+
+  var infowindow = new google.maps.InfoWindow(options);
+}
+        
+            google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+        
+
+    </head>
+    <body>
+        <div class="fondopantalla" data-role="page" id="history" data-theme="a">
+        <!-- Cabecera-->
+        <div data-role="header" data-position="fixed">
+            <h1>¿Dónde Aparcar?</h1>
+        </div>
+        
+        <!-- Contenido-->
+        <div data-role="content">
+        <div id="mapCanvas"></div>
+         
+        <h2 class="titulo">Arrastra el cochecito hasta el lugar donde aparcaste tu coche</h2>
+
+        <div id="infoPanel">
+
+            <b>Estado del coche:</b>
+            <div id="markerStatus"><i>Aparca tu coche</i></div>
+            <b class="miposicion">Posición actual:</b>
+            <div id="info"></div>
+            <b>¿Donde aparqué mi coche?:</b>
+            <div id="address"></div>
+        </div> 
+        <form class="aparcacoche" method="post">  
+               <input type="button" value="Aparcar" onclick="window.location.reload()" />
+            </form> 
+        </div>
+        <!-- Pie-->
+        <div data-role="footer" data-theme="b" data-position="fixed">
+           <div data-role="navbar">
+            <ul>
+                <li><a rel="external" href="index.html" data-role="button" data-icon="home">Menú Principal</a></li>
+            </ul>
+            </div><!-- /navbar -->
+        </div>
+        </div>
+    </body>
+</html>
+
+
+
+

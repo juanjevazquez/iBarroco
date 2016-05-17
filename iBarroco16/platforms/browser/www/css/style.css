@@ -1,0 +1,158 @@
+
+h1, h2, h3, h4, p {
+    text-shadow: none;
+}
+
+body {
+		
+		background-image: url("\img\others\cartel2015.jpg") no-repeat center center fixed !important;
+	}
+
+/*Header*/
+.cabecerapage{
+	text-align: center;
+}
+
+/*Fondo de pantalla*/
+.fondopantalla{
+	background-image: url("fondo.jpg");
+}
+
+/*Estilos de Espectaculos*/
+
+
+.bannertop img{
+	width: 100%;
+}
+
+.nombreespec{
+	padding: 5px;
+	border-style: solid;
+	border-color: white;
+	border-width: 2px;
+	background-color: black;
+	color: #ffbf01;
+	text-shadow: none;
+	margin-bottom: 20px;
+}
+
+.datosinfo {
+    background-color: #6b290f;
+    border-color: white;
+    border-style: solid;
+    border-width: 2px;
+    color: #ffffff;
+    padding: 10px;
+    text-shadow: none;
+}
+
+.datoscentro {
+    text-align: center !important;
+}
+
+.listali {
+    padding-left: 40px;
+}
+
+.imgesp{
+	width: 90%;
+	margin: 0 auto;
+}
+
+.imgesp img{	
+	width: 100%;
+	border-style: solid;
+	border-color: white;
+	border-width: 2px;
+}
+
+.imghis{
+	width: 90%;
+	margin: 0 auto;
+}
+
+.imghis img{	
+	width: 50%;
+	border-style: solid;
+	border-color: white;
+	border-width: 2px;
+}
+
+strong {
+    color: #ffbf01;
+}
+
+#weather iframe {
+    height: 425px;
+}
+
+/*Tabernas*/
+
+.nombretaberna {
+    color: #ffbf01;
+    text-align: center;
+    text-shadow: none;
+    background: black;
+    border: medium solid #ffffff;
+}
+
+.logotaberna{
+	width: 40%;
+}
+
+.textotaberna{
+	padding: 50px;
+	border-style: solid;
+	border-color: white;
+	border-width: 2px;
+	background-color: #6b290f;
+	color: #ffffff;
+	text-align: justify;
+}
+
+
+.fototaberna img{
+	border-style: solid;
+	border-color: #92663b;
+	border-width: 2px;
+	width: 90%;
+}
+
+.destacataberna{
+	text-align: center;
+	padding: 5px;
+	background: black;
+    border: medium solid #ffffff;
+	color: #ffbf01;
+}
+
+.textotaberna2{
+	text-align: justify;
+	padding: 15px;
+	border-style: solid;
+	border-color: white;
+	border-width: 2px;
+	background-color: #6b290f;
+	color: #ffffff;
+}
+
+/*Otros Estilos*/
+
+.quequieres {
+    color: #000000;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btncontacto {
+    display: block;
+}
+
+.contentmain {
+    padding: 1em 1em 0;
+}
+
+.btnini {
+    padding-bottom: 12px;
+}
+
