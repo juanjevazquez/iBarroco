@@ -8,12 +8,20 @@
     },
     "installed_plugins": {
         "cordova-plugin-whitelist": {
+<<<<<<< HEAD
             "PACKAGE_NAME": "com.phonegap.ibarroco"
+=======
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+>>>>>>> origin/Juanje
         }
     },
     "dependent_plugins": {},
     "modules": [],
     "plugin_metadata": {
+<<<<<<< HEAD
         "cordova-plugin-whitelist": "1.2.2"
+=======
+        "cordova-plugin-whitelist": "1.2.1"
+>>>>>>> origin/Juanje
     }
 }

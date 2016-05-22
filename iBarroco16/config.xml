@@ -1,7 +1,12 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.ibarroco" version="1.0.0">
   <name>iBarroco16</name>
   <description>Aplicacion oficial del XIV Mercado Barroco de Olivares (Sevilla).</description>
+<<<<<<< HEAD
   <author href="https://www.facebook.com/ibarroco" email="pmilrey@gmail.com">Pedro Millan Reyes y Juan Jesús Vázquez Rodríguez</author>
+=======
+  <author href="https://www.facebook.com/ibarroco" email="pmilrey@gmail.com">Pedro Millan Reyes</author>
+  <author href="https://www.facebook.com/ibarroco" email="jj.olivarence@gmail.com">Juanje Vazquez Rodriguez</author>
+>>>>>>> origin/Juanje
   <content src="index.html"/>
   <preference name="permissions" value="none"/>
   <preference name="orientation" value="portrait"/>
@@ -61,6 +66,12 @@
   <gap:splash src="www/res/screen/ios/screen-ipad-landscape.png" gap:platform="ios" width="1024" height="768"/>
   <gap:splash src="www/res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone"/>
   <access origin="*"/>
+  <access origin="https://twitter.com" subdomains="true" />
+<access origin="http://twitter.com" subdomains="true" />
+<access origin="http://platform.twitter.com" />
+<access origin="https://platform.twitter.com" />
+<access origin="https://cdn.syndication.twimg.com" />
+<access origin="http://cdn.syndication.twimg.com" />
   <plugin name="cordova-plugin-whitelist" version="1"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>

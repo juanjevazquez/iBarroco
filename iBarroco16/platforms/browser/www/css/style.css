@@ -3,7 +3,10 @@ h1, h2, h3, h4, p {
     text-shadow: none;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/Juanje
 body {
 		
 		background-image: url("\img\others\cartel2015.jpg") no-repeat center center fixed !important;
@@ -38,8 +41,13 @@ body {
 }
 
 .datosinfo {
+<<<<<<< HEAD
     background-color: #000000;
     border-color: #b24052;
+=======
+    background-color: #6b290f;
+    border-color: white;
+>>>>>>> origin/Juanje
     border-style: solid;
     border-width: 2px;
     color: #ffffff;
@@ -63,7 +71,11 @@ body {
 .imgesp img{	
 	width: 100%;
 	border-style: solid;
+<<<<<<< HEAD
 	border-color: #b24052;
+=======
+	border-color: white;
+>>>>>>> origin/Juanje
 	border-width: 2px;
 }
 
@@ -75,7 +87,11 @@ body {
 .imghis img{	
 	width: 50%;
 	border-style: solid;
+<<<<<<< HEAD
 	border-color: #b24052;
+=======
+	border-color: white;
+>>>>>>> origin/Juanje
 	border-width: 2px;
 }
 
@@ -93,7 +109,11 @@ strong {
     color: #ffbf01;
     text-align: center;
     text-shadow: none;
+<<<<<<< HEAD
     background: #b24052;
+=======
+    background: black;
+>>>>>>> origin/Juanje
     border: medium solid #ffffff;
 }
 
@@ -104,9 +124,15 @@ strong {
 .textotaberna{
 	padding: 50px;
 	border-style: solid;
+<<<<<<< HEAD
 	border-color: #b24052;
 	border-width: 2px;
 	background-color: black;
+=======
+	border-color: white;
+	border-width: 2px;
+	background-color: #6b290f;
+>>>>>>> origin/Juanje
 	color: #ffffff;
 	text-align: justify;
 }
@@ -114,7 +140,11 @@ strong {
 
 .fototaberna img{
 	border-style: solid;
+<<<<<<< HEAD
 	border-color: #b24052;
+=======
+	border-color: #92663b;
+>>>>>>> origin/Juanje
 	border-width: 2px;
 	width: 90%;
 }
@@ -122,7 +152,11 @@ strong {
 .destacataberna{
 	text-align: center;
 	padding: 5px;
+<<<<<<< HEAD
 	background: #b24052;
+=======
+	background: black;
+>>>>>>> origin/Juanje
     border: medium solid #ffffff;
 	color: #ffbf01;
 }
@@ -131,10 +165,17 @@ strong {
 	text-align: justify;
 	padding: 15px;
 	border-style: solid;
+<<<<<<< HEAD
 	border-color: #b24052;
 	border-width: 2px;
 	background-color: black;
 	color: white;
+=======
+	border-color: white;
+	border-width: 2px;
+	background-color: #6b290f;
+	color: #ffffff;
+>>>>>>> origin/Juanje
 }
 
 /*Otros Estilos*/
